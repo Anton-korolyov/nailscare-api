@@ -10,8 +10,11 @@ RUN dotnet publish -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
+ENV ASPNETCORE_URLS=http://+:5000
+
 EXPOSE 5000
 
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "NailsCare.Api.dll"]
+
