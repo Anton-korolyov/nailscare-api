@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NailsCare.Api.Data;
 using NailsCare.Api.Models;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Formats.Jpeg;
+using SixLabors.ImageSharp.Formats.Webp;
 
 namespace NailsCare.Api.Controllers
 {
@@ -41,8 +45,8 @@ namespace NailsCare.Api.Controllers
         [Consumes("multipart/form-data")]
         [RequestSizeLimit(15_000_000)]
         public async Task<IActionResult> Upload(
-            [FromForm] IFormFile file,
-            [FromForm] string category)
+    [FromForm] IFormFile file,
+    [FromForm] string category)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("file is required");
@@ -52,7 +56,6 @@ namespace NailsCare.Api.Controllers
             if (category != "manicure" && category != "pedicure")
                 return BadRequest("category must be manicure or pedicure");
 
-            // ✅ ВСЕГДА через WebRootPath
             var uploadsRoot = Path.Combine(
                 _env.WebRootPath,
                 "uploads",
@@ -67,52 +70,77 @@ namespace NailsCare.Api.Controllers
             if (!allowed.Contains(ext))
                 return BadRequest("only jpg/jpeg/png/webp allowed");
 
-            var fileName = $"{Guid.NewGuid()}{ext}";
+            var fileName = $"{Guid.NewGuid()}.jpg"; // 👈 всегда сохраняем как jpg
             var fullPath = Path.Combine(uploadsRoot, fileName);
 
-            await using var stream = System.IO.File.Create(fullPath);
-            await file.CopyToAsync(stream);
+            // 🔥 LOAD IMAGE
+            using var image = await Image.LoadAsync(file.OpenReadStream());
 
-            var image = new GalleryImage
+            // 🔥 RESIZE
+            image.Mutate(x =>
+                x.Resize(new ResizeOptions
+                {
+                    Mode = ResizeMode.Max,
+                    Size = new Size(1200, 1200)
+                })
+            );
+
+            // 🔥 COMPRESS
+            var encoder = new JpegEncoder
+            {
+                Quality = 75
+            };
+
+            await image.SaveAsync(fullPath, encoder);
+
+            var galleryImage = new GalleryImage
             {
                 Category = category,
                 ImageUrl = $"/uploads/{category}/{fileName}"
             };
 
-            _db.GalleryImages.Add(image);
+            _db.GalleryImages.Add(galleryImage);
             await _db.SaveChangesAsync();
 
-            return Ok(image);
+            return Ok(galleryImage);
         }
 
-        // ONLY ADMIN (Android)
-        //[ApiExplorerSettings(IgnoreApi = true)]
         //[Authorize(Roles = "Admin")]
         //[HttpPost("upload")]
         //[Consumes("multipart/form-data")]
         //[RequestSizeLimit(15_000_000)]
-        //public async Task<IActionResult> Upload([FromForm] IFormFile file, [FromForm] string category)
+        //public async Task<IActionResult> Upload(
+        //    [FromForm] IFormFile file,
+        //    [FromForm] string category)
         //{
         //    if (file == null || file.Length == 0)
         //        return BadRequest("file is required");
 
         //    category = (category ?? "").Trim().ToLower();
+
         //    if (category != "manicure" && category != "pedicure")
         //        return BadRequest("category must be manicure or pedicure");
 
-        //    var uploadsRoot = Path.Combine(_env.WebRootPath, "uploads", category);
+        //    // ✅ ВСЕГДА через WebRootPath
+        //    var uploadsRoot = Path.Combine(
+        //        _env.WebRootPath,
+        //        "uploads",
+        //        category
+        //    );
+
         //    Directory.CreateDirectory(uploadsRoot);
 
         //    var ext = Path.GetExtension(file.FileName).ToLower();
         //    var allowed = new[] { ".jpg", ".jpeg", ".png", ".webp" };
+
         //    if (!allowed.Contains(ext))
         //        return BadRequest("only jpg/jpeg/png/webp allowed");
 
         //    var fileName = $"{Guid.NewGuid()}{ext}";
         //    var fullPath = Path.Combine(uploadsRoot, fileName);
 
-        //    await using (var stream = System.IO.File.Create(fullPath))
-        //        await file.CopyToAsync(stream);
+        //    await using var stream = System.IO.File.Create(fullPath);
+        //    await file.CopyToAsync(stream);
 
         //    var image = new GalleryImage
         //    {
@@ -125,6 +153,8 @@ namespace NailsCare.Api.Controllers
 
         //    return Ok(image);
         //}
+
+
 
         // ONLY ADMIN (удаление)
         [Authorize(Roles = "Admin")]
