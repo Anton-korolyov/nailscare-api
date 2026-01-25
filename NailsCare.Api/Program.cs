@@ -51,7 +51,7 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
-builder.WebHost.UseUrls("http://0.0.0.0:5042");
+
 var app = builder.Build();
 
 // ================= PIPELINE =================
