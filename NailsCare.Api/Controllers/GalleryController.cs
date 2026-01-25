@@ -41,8 +41,8 @@ namespace NailsCare.Api.Controllers
         [Consumes("multipart/form-data")]
         [RequestSizeLimit(15_000_000)]
         public async Task<IActionResult> Upload(
-    [FromForm] IFormFile file,
-    [FromForm] string category)
+            [FromForm] IFormFile file,
+            [FromForm] string category)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("file is required");
@@ -52,8 +52,13 @@ namespace NailsCare.Api.Controllers
             if (category != "manicure" && category != "pedicure")
                 return BadRequest("category must be manicure or pedicure");
 
-            // 🔥 ВАЖНО: путь совпадает с volume docker
-            var uploadsRoot = Path.Combine("/app/uploads", category);
+            // ✅ ВСЕГДА через WebRootPath
+            var uploadsRoot = Path.Combine(
+                _env.WebRootPath,
+                "uploads",
+                category
+            );
+
             Directory.CreateDirectory(uploadsRoot);
 
             var ext = Path.GetExtension(file.FileName).ToLower();
