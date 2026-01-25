@@ -36,35 +36,37 @@ namespace NailsCare.Api.Controllers
 
             return Ok(images);
         }
-
-        // ONLY ADMIN (Android)
-        [ApiExplorerSettings(IgnoreApi = true)]
         [Authorize(Roles = "Admin")]
         [HttpPost("upload")]
         [Consumes("multipart/form-data")]
         [RequestSizeLimit(15_000_000)]
-        public async Task<IActionResult> Upload([FromForm] IFormFile file, [FromForm] string category)
+        public async Task<IActionResult> Upload(
+    [FromForm] IFormFile file,
+    [FromForm] string category)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("file is required");
 
             category = (category ?? "").Trim().ToLower();
+
             if (category != "manicure" && category != "pedicure")
                 return BadRequest("category must be manicure or pedicure");
 
-            var uploadsRoot = Path.Combine(_env.WebRootPath, "uploads", category);
+            // 🔥 ВАЖНО: путь совпадает с volume docker
+            var uploadsRoot = Path.Combine("/app/uploads", category);
             Directory.CreateDirectory(uploadsRoot);
 
             var ext = Path.GetExtension(file.FileName).ToLower();
             var allowed = new[] { ".jpg", ".jpeg", ".png", ".webp" };
+
             if (!allowed.Contains(ext))
                 return BadRequest("only jpg/jpeg/png/webp allowed");
 
             var fileName = $"{Guid.NewGuid()}{ext}";
             var fullPath = Path.Combine(uploadsRoot, fileName);
 
-            await using (var stream = System.IO.File.Create(fullPath))
-                await file.CopyToAsync(stream);
+            await using var stream = System.IO.File.Create(fullPath);
+            await file.CopyToAsync(stream);
 
             var image = new GalleryImage
             {
@@ -77,6 +79,47 @@ namespace NailsCare.Api.Controllers
 
             return Ok(image);
         }
+
+        // ONLY ADMIN (Android)
+        //[ApiExplorerSettings(IgnoreApi = true)]
+        //[Authorize(Roles = "Admin")]
+        //[HttpPost("upload")]
+        //[Consumes("multipart/form-data")]
+        //[RequestSizeLimit(15_000_000)]
+        //public async Task<IActionResult> Upload([FromForm] IFormFile file, [FromForm] string category)
+        //{
+        //    if (file == null || file.Length == 0)
+        //        return BadRequest("file is required");
+
+        //    category = (category ?? "").Trim().ToLower();
+        //    if (category != "manicure" && category != "pedicure")
+        //        return BadRequest("category must be manicure or pedicure");
+
+        //    var uploadsRoot = Path.Combine(_env.WebRootPath, "uploads", category);
+        //    Directory.CreateDirectory(uploadsRoot);
+
+        //    var ext = Path.GetExtension(file.FileName).ToLower();
+        //    var allowed = new[] { ".jpg", ".jpeg", ".png", ".webp" };
+        //    if (!allowed.Contains(ext))
+        //        return BadRequest("only jpg/jpeg/png/webp allowed");
+
+        //    var fileName = $"{Guid.NewGuid()}{ext}";
+        //    var fullPath = Path.Combine(uploadsRoot, fileName);
+
+        //    await using (var stream = System.IO.File.Create(fullPath))
+        //        await file.CopyToAsync(stream);
+
+        //    var image = new GalleryImage
+        //    {
+        //        Category = category,
+        //        ImageUrl = $"/uploads/{category}/{fileName}"
+        //    };
+
+        //    _db.GalleryImages.Add(image);
+        //    await _db.SaveChangesAsync();
+
+        //    return Ok(image);
+        //}
 
         // ONLY ADMIN (удаление)
         [Authorize(Roles = "Admin")]
