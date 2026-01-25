@@ -1,0 +1,16 @@
+# .NET
+bin/
+obj/
+
+# user files
+*.user
+*.suo
+
+# secrets
+appsettings.Production.json
+
+# logs
+*.log
+
+# publish
+publish/

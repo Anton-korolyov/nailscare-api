@@ -1,0 +1,6 @@
+@NailsCare.Api_HostAddress = http://localhost:5042
+
+GET {{NailsCare.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
