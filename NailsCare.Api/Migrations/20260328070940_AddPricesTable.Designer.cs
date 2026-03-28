@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NailsCare.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260328062516_AddPricesTable")]
+    [Migration("20260328070940_AddPricesTable")]
     partial class AddPricesTable
     {
         /// <inheritdoc />
