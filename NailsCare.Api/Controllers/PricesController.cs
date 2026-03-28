@@ -18,7 +18,7 @@ namespace NailsCare.Api.Controllers
             _db = db;
         }
 
-        // ================= GET ALL =================
+        // GET
         [HttpGet]
         public async Task<ActionResult<List<Price>>> GetPrices()
         {
@@ -26,18 +26,17 @@ namespace NailsCare.Api.Controllers
             return Ok(prices);
         }
 
-        // ================= ADD =================
+        // ADD
         [HttpPost]
         public async Task<ActionResult<Price>> AddPrice([FromBody] Price price)
         {
             _db.Prices.Add(price);
             await _db.SaveChangesAsync();
-
             return Ok(price);
         }
 
-        // ================= UPDATE =================
-        [HttpPut("{id}")]
+        // UPDATE
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdatePrice(int id, [FromBody] Price updated)
         {
             var price = await _db.Prices.FindAsync(id);
@@ -53,8 +52,8 @@ namespace NailsCare.Api.Controllers
             return Ok(price);
         }
 
-        // ================= DELETE =================
-        [HttpDelete("{id}")]
+        // DELETE
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeletePrice(int id)
         {
             var price = await _db.Prices.FindAsync(id);
