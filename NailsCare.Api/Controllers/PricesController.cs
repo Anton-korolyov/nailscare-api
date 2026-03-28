@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NailsCare.Api.Data;
@@ -27,6 +28,7 @@ namespace NailsCare.Api.Controllers
         }
 
         // ADD
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Price>> AddPrice([FromBody] Price price)
         {
@@ -36,6 +38,7 @@ namespace NailsCare.Api.Controllers
         }
 
         // UPDATE
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdatePrice(int id, [FromBody] Price updated)
         {
@@ -53,6 +56,7 @@ namespace NailsCare.Api.Controllers
         }
 
         // DELETE
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeletePrice(int id)
         {
