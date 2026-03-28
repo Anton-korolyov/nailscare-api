@@ -40,6 +40,9 @@ namespace NailsCare.Api.Controllers
 
             return Ok(images);
         }
+
+
+
         [Authorize(Roles = "Admin")]
         [HttpPost("upload")]
         [Consumes("multipart/form-data")]
