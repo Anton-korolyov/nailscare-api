@@ -92,7 +92,7 @@
               "RelativeDocumentMoniker": "NailsCare.Api\\Controllers\\PricesController.cs",
               "ToolTip": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Controllers\\PricesController.cs",
               "RelativeToolTip": "NailsCare.Api\\Controllers\\PricesController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowEUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-28T07:28:28.643Z",
               "EditorCaption": ""
@@ -107,8 +107,7 @@
               "RelativeToolTip": "NailsCare.Api\\Migrations\\20260328070940_AddPricesTable.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwCEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T07:09:40.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-28T07:09:40.35Z"
             },
             {
               "$type": "Document",

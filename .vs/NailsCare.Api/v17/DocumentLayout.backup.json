@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\projects\\Nailsproject\\NailsCare.Api\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B0887A5D-BC16-4FA9-B044-CDC4ECB0C376}|NailsCare.Api\\NailsCare.Api.csproj|c:\\projects\\nailsproject\\nailscare.api\\nailscare.api\\controllers\\pricescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0887A5D-BC16-4FA9-B044-CDC4ECB0C376}|NailsCare.Api\\NailsCare.Api.csproj|solutionrelative:nailscare.api\\controllers\\pricescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B0887A5D-BC16-4FA9-B044-CDC4ECB0C376}|NailsCare.Api\\NailsCare.Api.csproj|c:\\projects\\nailsproject\\nailscare.api\\nailscare.api\\migrations\\20260328070940_addpricestable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0887A5D-BC16-4FA9-B044-CDC4ECB0C376}|NailsCare.Api\\NailsCare.Api.csproj|solutionrelative:nailscare.api\\migrations\\20260328070940_addpricestable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -83,6 +87,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PricesController.cs",
+              "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Controllers\\PricesController.cs",
+              "RelativeDocumentMoniker": "NailsCare.Api\\Controllers\\PricesController.cs",
+              "ToolTip": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Controllers\\PricesController.cs",
+              "RelativeToolTip": "NailsCare.Api\\Controllers\\PricesController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowEUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-28T07:28:28.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "20260328070940_AddPricesTable.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Migrations\\20260328070940_AddPricesTable.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Migrations\\20260328070940_AddPricesTable.cs",
@@ -90,12 +107,11 @@
               "RelativeToolTip": "NailsCare.Api\\Migrations\\20260328070940_AddPricesTable.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwCEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T07:09:40.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-28T07:09:40.35Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "20260328070401_AddPricesTable.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Migrations\\20260328070401_AddPricesTable.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Migrations\\20260328070401_AddPricesTable.cs",
@@ -107,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Price.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Models\\Price.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Models\\Price.cs",
@@ -119,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\appsettings.json",
               "RelativeDocumentMoniker": "NailsCare.Api\\appsettings.json",
@@ -131,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Dtos\\LoginDto.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Dtos\\LoginDto.cs",
@@ -143,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Data\\AppDbContext.cs",
@@ -155,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "GalleryController.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Controllers\\GalleryController.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Controllers\\GalleryController.cs",
@@ -167,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AppDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Migrations\\AppDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Migrations\\AppDbContextModelSnapshot.cs",
@@ -179,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Program.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Program.cs",
@@ -191,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "GalleryImage.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Models\\GalleryImage.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Models\\GalleryImage.cs",
@@ -203,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "20260123204721_InitPostgres.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Migrations\\20260123204721_InitPostgres.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Migrations\\20260123204721_InitPostgres.cs",
@@ -215,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "20260123204721_InitPostgres.Designer.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Migrations\\20260123204721_InitPostgres.Designer.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Migrations\\20260123204721_InitPostgres.Designer.cs",
@@ -227,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "NailsCare.Api.http",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\NailsCare.Api.http",
               "RelativeDocumentMoniker": "NailsCare.Api\\NailsCare.Api.http",
@@ -239,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Models\\User.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Models\\User.cs",
@@ -251,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "NailsCare.Api\\Controllers\\AuthController.cs",
