@@ -104,7 +104,7 @@
               "RelativeDocumentMoniker": "NailsCare.Api\\Controllers\\AppointmentsController.cs",
               "ToolTip": "C:\\projects\\Nailsproject\\NailsCare.Api\\NailsCare.Api\\Controllers\\AppointmentsController.cs",
               "RelativeToolTip": "NailsCare.Api\\Controllers\\AppointmentsController.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAgwFUAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAB8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-08T12:59:46.963Z",
               "EditorCaption": ""
@@ -143,8 +143,7 @@
               "RelativeToolTip": "NailsCare.Api\\Controllers\\PricesController.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAA3wEEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T07:28:28.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-28T07:28:28.643Z"
             },
             {
               "$type": "Document",
@@ -156,8 +155,7 @@
               "RelativeToolTip": "NailsCare.Api\\Program.cs",
               "ViewState": "AgIAAEwAAAAAAAAAAAAmwGYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T17:12:38.767Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-19T17:12:38.767Z"
             },
             {
               "$type": "Document",
