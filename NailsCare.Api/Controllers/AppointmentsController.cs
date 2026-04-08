@@ -22,6 +22,8 @@ namespace NailsCare.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Appointment>>> Get(DateTime date)
         {
+            date = DateTime.SpecifyKind(date, DateTimeKind.Utc);
+
             var list = await _db.Appointments
                 .Where(x => x.Date.Date == date.Date)
                 .OrderBy(x => x.Hour)
@@ -36,6 +38,8 @@ namespace NailsCare.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Appointment>> Add([FromBody] Appointment item)
         {
+            item.Date = DateTime.SpecifyKind(item.Date, DateTimeKind.Utc);
+
             var exists = await _db.Appointments.AnyAsync(x =>
                 x.Date.Date == item.Date.Date &&
                 x.Hour == item.Hour &&
@@ -62,7 +66,7 @@ namespace NailsCare.Api.Controllers
                 return NotFound();
 
             item.Name = updated.Name;
-            item.Date = updated.Date;
+            item.Date = DateTime.SpecifyKind(updated.Date, DateTimeKind.Utc);
             item.Hour = updated.Hour;
             item.Minute = updated.Minute;
 
