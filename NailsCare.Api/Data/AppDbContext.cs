@@ -11,5 +11,7 @@ namespace NailsCare.Api.Data
         public DbSet<User> Users => Set<User>();
         public DbSet<GalleryImage> GalleryImages => Set<GalleryImage>();
         public DbSet<Price> Prices => Set<Price>();
+        public DbSet<Appointment> Appointments => Set<Appointment>();
+
     }
 }
