@@ -17,14 +17,12 @@ namespace NailsCare.Api.Controllers
         {
             _db = db;
         }
+
         [HttpGet("month")]
         public async Task<ActionResult<List<Appointment>>> GetMonth(int year, int month)
         {
-            var start = new DateTime(year, month, 1);
-            var end = start.AddMonths(1);
-
             var list = await _db.Appointments
-                .Where(x => x.Date >= start && x.Date < end)
+                .Where(x => x.Date.Year == year && x.Date.Month == month)
                 .ToListAsync();
 
             return Ok(list);
